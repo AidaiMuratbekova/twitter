@@ -1,0 +1,12 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block content %}
+iv class="posts">
+<h1>Search results:</h1>
+<div class="posts">
+    {% for post in results %}
+     <a href="{% url 'category' post.id %}">{{post.title}}</a>
+    {% endfor %}
+</div>
+
+{% endblock %}

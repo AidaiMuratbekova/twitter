@@ -1,6 +1,10 @@
 {% extends "blog/base.html" %}
 {% block title %}My Blog{% endblock %}
+
 {% block content %}
+<a href="{% url 'login' %}">Войти</a>
+<a href="{% url 'register' %}">Регистрация</a>
+
 <h1>My Blog</h1>
 {% for post in posts %}
 <h2>
@@ -8,7 +12,17 @@
 </h2>
 <p class="date">Published {{ post.publish }} by {{ post.author }}</p>
 {{ post.body|truncatewords:30|linebreaks }}
-
+{% include "../pagination.html" with page=posts %}
 {% endfor %}
-{% include "pagination.html" with page=page_obj %}
+    <div class="pagination">
+        {% if page_obj.has_previous %}
+            <a href="?page={{ page_obj.previous_page_number }}">Предыдушая страница</a>
+        {% endif %}
+        <span>Старница:  {{ page_obj.number}} </span>
+        {% if page_obj.has_next %}
+            <a href="?page= {{ page_obj.next_page_number }}">Следуюшая страница</a>
+
+        {% endif %}
+
+    </div>
 {% endblock %}

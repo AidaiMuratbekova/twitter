@@ -1,0 +1,53 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block content %}
+							<!-- Banner -->
+								<section id="banner">
+									<div class="content">
+										<header>
+											<h1>{{ post.name }}<br />
+											by HTML5 UP</h1>
+<!--											<p>A free and fully responsive site template</p>-->
+										</header>
+
+
+										<p>Aenean ornare velit lacus, ac varius enim ullamcorper eu. Proin aliquam facilisis ante interdum congue. Integer mollis, nisl amet convallis, porttitor magna ullamcorper, amet egestas mauris. Ut magna finibus nisi nec lacinia. Nam maximus erat id euismod egestas. Pellentesque sapien ac quam. Lorem ipsum dolor sit nullam.</p>
+										<ul class="actions">
+											<li></li>
+										</ul>
+									</div>
+									<span class="image object">
+										<img src="{{ post.image.url }}" style="with: 300px; height: 300px;" alt="" />
+									</span>
+								</section>
+
+
+
+							<!-- Section -->
+								<section>
+									<header class="major">
+										<h2>Ipsum sed dolor</h2>
+									</header>
+									<div class="posts">
+										{% for post in posts %}
+										<article>
+											<a href="#" class="image"><img src="" alt="" /></a>
+											<h3>{{ post }}</h3>
+											<p>{{ post.body }}</p>
+											<ul class="actions">
+												<li><a href="{% url 'detail'  %}" class="button">More</a></li>
+											</ul>
+											<li><a href="{% url 'blog:detail'  %}" class="button">Comment</a></li>
+											<li><a href="{% url 'post_delete' post.pk %}" class="button">Delete</a></li>
+
+
+										</article>
+										{% endfor %}
+
+
+									</div>
+								</section>
+
+
+
+{% endblock %}

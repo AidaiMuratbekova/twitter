@@ -1,0 +1,22 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block content %}
+							<!-- Content -->
+								<section>
+									<header class="main">
+										<h1>{{post.title }}</h1>
+									</header>
+
+									<span class="image main"><img src="{% static 'images/pird.jpeg' %}" style="wight: auto; height: 10;" alt="" /></span>
+
+								    <p>{{ post.author}}</p>
+
+
+									<hr class="major" />
+
+									<h2>Interdum sed dapibus</h2>
+									<p>{{post.body }}</p>
+								</section>
+{% endblock %}
+
+
